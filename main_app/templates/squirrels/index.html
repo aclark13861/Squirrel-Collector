@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Squirrel List</h1>
+
+{% for squirrel in squirrels %}
+  <div class="card">
+    <a href="{% url 'detail' squirrel.id %}">
+    <div class="card-content">
+      <span class="card-title">{{ squirrel.name }}</span>
+      <p>Breed: {{ squirrel.breed }}</p>
+      <p>Description: {{ squirrel.description }}</p>
+      {% if squirrel.age > 0 %}
+        <p>Age: {{ squirrel.age }}</p>
+      {% else %}
+        <p>Age: BB squirrel</p>
+      {% endif %}
+    </div>
+  </a>
+  </div>
+{% endfor %}
+
+{% endblock %}
